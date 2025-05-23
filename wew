@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cctype>  // for std::toupper
+
+int main() {
+    char choice;
+
+    std::cout << "Welcome to the Addition Program!" << std::endl;
+
+    do {
+        std::cout << "\nPlease select an option:" << std::endl;
+        std::cout << "  2 - Add 2 numbers" << std::endl;
+        std::cout << "  3 - Add 3 numbers" << std::endl;
+        std::cout << "  Q - Quit" << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        choice = std::toupper(choice);
+
+        if (choice == '2') {
+            double num1, num2;
+            std::cout << "Enter the first number: ";
+            std::cin >> num1;
+            std::cout << "Enter the second number: ";
+            std::cin >> num2;
+
+            double sum = num1 + num2;
+            std::cout << "Sum of the two numbers: " << sum << std::endl;
+        }
+        else if (choice == '3') {
+            double num1, num2, num3;
+            std::cout << "Enter the first number: ";
+            std::cin >> num1;
+            std::cout << "Enter the second number: ";
+            std::cin >> num2;
+            std::cout << "Enter the third number: ";
+            std::cin >> num3;
+
+            double sum = num1 + num2 + num3;
+            std::cout << "Sum of the three numbers: " << sum << std::endl;
+        }
+        else if (choice == 'Q') {
+            std::cout << "Exiting program. Goodbye!" << std::endl;
+            break;
+        }
+        else {
+            std::cout << "Invalid choice. Please select 2, 3, or Q." << std::endl;
+        }
+
+        // Clear any input errors and ignore any leftover input to prevent infinite loops with invalid input
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    } while (true);
+
+    return 0;
+}
+
